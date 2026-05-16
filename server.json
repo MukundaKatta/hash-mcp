@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.MukundaKatta/hash",
+  "description": "MCP server: hash files or strings with sha-2, sha-3, blake2/3, or xxhash.",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/MukundaKatta/hash-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://github.com/MukundaKatta/hash-mcp",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@mukundakatta/hash-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
