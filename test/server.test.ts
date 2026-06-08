@@ -42,9 +42,36 @@ test('base64url has no padding', () => {
   assert.equal(out.includes('/'), false);
 });
 
+test('sha512 hex of "abc"', () => {
+  // Known: sha512("abc") per FIPS 180-4.
+  assert.equal(
+    hash('abc', 'sha512'),
+    'ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a' +
+      '2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f',
+  );
+});
+
+test('sha1 hex of "abc"', () => {
+  // Known: sha1("abc") per FIPS 180-1.
+  assert.equal(hash('abc', 'sha1'), 'a9993e364706816aba3e25717850c26c9cd0d89d');
+});
+
+test('sha384 produces a 96-char hex digest', () => {
+  assert.equal(hash('', 'sha384').length, 96);
+});
+
+test('blake2s256 produces a 64-char hex digest', () => {
+  assert.equal(hash('', 'blake2s256').length, 64);
+});
+
 test('rejects unknown algorithm', () => {
   // @ts-expect-error intentional wrong type
-  assert.throws(() => hash('x', 'not-an-algo'));
+  assert.throws(() => hash('x', 'not-an-algo'), /unsupported algo/);
+});
+
+test('rejects unknown encoding', () => {
+  // @ts-expect-error intentional wrong type
+  assert.throws(() => hash('x', 'sha256', 'not-an-encoding'), /unsupported encoding/);
 });
 
 test('deterministic across calls', () => {

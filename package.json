@@ -2,7 +2,7 @@
   "name": "@mukundakatta/hash-mcp",
   "version": "0.1.0",
   "mcpName": "io.github.MukundaKatta/hash",
-  "description": "MCP server: hash files or strings with sha-2, sha-3, blake2/3, or xxhash.",
+  "description": "MCP server: hash a string with sha-2, sha-3, blake2, md5, or sha1.",
   "type": "module",
   "bin": {
     "mcp-hash": "dist/server.js"
@@ -27,8 +27,7 @@
     "hash",
     "sha256",
     "sha3",
-    "blake3",
-    "xxhash"
+    "blake2"
   ],
   "author": "Mukunda Katta <mukunda.vjcs6@gmail.com>",
   "license": "MIT",
